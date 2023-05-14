@@ -1,4 +1,4 @@
-function Calibrar (cal: number) {
+function Calibrar () {
     basic.showLeds(`
         # . # . .
         . # . . .
@@ -13,7 +13,13 @@ function Calibrar (cal: number) {
         . # . # .
         . . . . .
         `)
-    tolerancia = tolerancia + cal
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . # . #
+        . . . # .
+        . . # . #
+        `)
     basic.showNumber(tolerancia)
     basic.pause(1200)
     basic.showLeds(`
@@ -40,13 +46,15 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     OnOff()
 })
 input.onButtonPressed(Button.A, function () {
-    Calibrar(10)
+    tolerancia = tolerancia + 10
+    basic.showNumber(tolerancia)
 })
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
     reiniciar()
 })
 input.onButtonPressed(Button.B, function () {
-    Calibrar(-10)
+    tolerancia = tolerancia - 10
+    basic.showNumber(tolerancia)
 })
 function mover () {
     basic.showLeds(`
@@ -100,7 +108,7 @@ function reiniciar () {
     tolerancia = 30
     robotbit.MotorRun(robotbit.Motors.M1A, 0)
     robotbit.MotorRun(robotbit.Motors.M2B, 0)
-    Calibrar(0)
+    Calibrar()
 }
 function OnOff () {
     if (ligado == 0) {
