@@ -59,37 +59,25 @@ input.onButtonPressed(Button.B, function () {
     basic.showNumber(tolerancia)
 })
 function mover () {
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
     if (ligado == 1) {
         if (pins.analogReadPin(AnalogPin.P1) <= CalibrarDireita - tolerancia) {
-            basic.showLeds(`
-                . . # . .
-                . . # # .
-                # # # # #
-                . . # # .
-                . . # . .
-                `)
             robotbit.MotorRun(robotbit.Motors.M1A, 0)
-            robotbit.MotorRun(robotbit.Motors.M2B, 75)
+            robotbit.MotorRun(robotbit.Motors.M2B, 50)
             basic.pause(50)
         } else if (pins.analogReadPin(AnalogPin.P2) <= CalibrarEsquerda - tolerancia) {
-            basic.showLeds(`
-                . . # . .
-                . # # . .
-                # # # # #
-                . # # . .
-                . . # . .
-                `)
-            robotbit.MotorRun(robotbit.Motors.M1A, 75)
+            robotbit.MotorRun(robotbit.Motors.M1A, 50)
             robotbit.MotorRun(robotbit.Motors.M2B, 0)
             basic.pause(50)
         } else {
+            robotbit.MotorRun(robotbit.Motors.M1A, 75)
+            robotbit.MotorRun(robotbit.Motors.M2B, 75)
+            basic.showLeds(`
+                . # # # .
+                # # # # #
+                . . # . .
+                . . # . .
+                . . . . .
+                `)
             basic.showLeds(`
                 . . # . .
                 . # # # .
@@ -97,8 +85,13 @@ function mover () {
                 . . # . .
                 . . # . .
                 `)
-            robotbit.MotorRun(robotbit.Motors.M1A, 75)
-            robotbit.MotorRun(robotbit.Motors.M2B, 75)
+            basic.showLeds(`
+                . . . . .
+                . . # . .
+                . # # # .
+                # # # # #
+                . . # . .
+                `)
         }
     } else {
         robotbit.MotorRun(robotbit.Motors.M1A, 0)
