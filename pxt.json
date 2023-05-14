@@ -1,0 +1,27 @@
+{
+    "name": "micro:bot Experiment 3 Line Follower",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "motobit": "github:sparkfun/pxt-moto-bit#5e903a3cd0a84a9e0a5df3671c630e29af1e3bbc",
+        "microphone": "*",
+        "robotbit": "github:kittenbot/pxt-robotbit#v0.4.5"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "5.0.12",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
