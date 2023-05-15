@@ -80,11 +80,11 @@ input.onButtonPressed(Button.B, function () {
     basic.showNumber(tolerancia)
 })
 function mover () {
-    if (leituraP1 <= CalibrarDireita - tolerancia) {
+    if (leituraP1 <= CalibrarDireita - tolerancia && leituraP2 > CalibrarEsquerda - tolerancia) {
         robotbit.MotorRun(robotbit.Motors.M1A, 0)
         robotbit.MotorRun(robotbit.Motors.M2B, 45)
         basic.pause(50)
-    } else if (leituraP2 <= CalibrarEsquerda - tolerancia) {
+    } else if (leituraP2 <= CalibrarDireita - tolerancia && leituraP1 > CalibrarEsquerda - tolerancia) {
         robotbit.MotorRun(robotbit.Motors.M1A, 45)
         robotbit.MotorRun(robotbit.Motors.M2B, 0)
         basic.pause(50)
